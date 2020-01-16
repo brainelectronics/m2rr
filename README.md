@@ -1,11 +1,11 @@
 M2R
 ===
 
-[![PyPI](https://img.shields.io/pypi/v/m2r.svg)](https://pypi.python.org/pypi/m2r)
-[![PyPI version](https://img.shields.io/pypi/pyversions/m2r.svg)](https://pypi.python.org/pypi/m2r)
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://miyakogi.github.io/m2r)
-[![Build Status](https://travis-ci.org/miyakogi/m2r.svg?branch=master)](https://travis-ci.org/miyakogi/m2r)
-[![codecov](https://codecov.io/gh/miyakogi/m2r/branch/master/graph/badge.svg)](https://codecov.io/gh/miyakogi/m2r)
+[![PyPI](https://img.shields.io/pypi/v/m2rr.svg)](https://pypi.python.org/pypi/m2rr)
+[![PyPI version](https://img.shields.io/pypi/pyversions/m2rr.svg)](https://pypi.python.org/pypi/m2rr)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://miyakogi.github.io/m2rr)
+[![Build Status](https://travis-ci.org/miyakogi/m2rr.svg?branch=master)](https://travis-ci.org/miyakogi/m2rr)
+[![codecov](https://codecov.io/gh/miyakogi/m2rr/branch/master/graph/badge.svg)](https://codecov.io/gh/miyakogi/m2rr)
 
 --------------------------------------------------------------------------------
 
@@ -37,7 +37,7 @@ a code block in HTML like `see <code>ref</code>_`, which is not expected.
 * Sphinx extension
     * add markdown support for sphinx
     * ``mdinclude`` directive to include markdown from md or rst files
-    * option to parse relative links into ref and doc directives (``m2r_parse_relative_links``)
+    * option to parse relative links into ref and doc directives (``m2rr_parse_relative_links``)
 * Pure python implementation
     * pandoc is not required
 
@@ -46,34 +46,34 @@ a code block in HTML like `see <code>ref</code>_`, which is not expected.
 Python 2.7 or Python 3.4+ is required.
 
 ```
-pip install m2r
+pip install m2rr
 ```
 
 Or,
 
 ```
-python3 -m pip install m2r
+python3 -m pip install m2rr
 ```
 
 ## Usage
 
 ### Command Line
 
-`m2r` command converts markdown file to rst format.
+`m2rr` command converts markdown file to rst format.
 
 ```
-m2r your_document.md [your_document2.md ...]
+m2rr your_document.md [your_document2.md ...]
 ```
 
 Then you will find `your_document.rst` in the same directory.
 
 ### Programmatic Use
 
-Import `m2r.convert` function and call it with markdown text.
+Import `m2rr.convert` function and call it with markdown text.
 Then it will return converted text.
 
 ```python
-from m2r import convert
+from m2rr import convert
 rst = convert('# Title\n\nSentence.')
 print(rst)
 # Title
@@ -86,7 +86,7 @@ Or, use `parse_from_file` function to load markdown file and obtain converted
 text.
 
 ```python
-from m2r import parse_from_file
+from m2rr import parse_from_file
 output = parse_from_file('markdown_file.md')
 ```
 
@@ -96,10 +96,10 @@ PyPI as rst format.
 ```python
 readme_file = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'README.md')
 try:
-    from m2r import parse_from_file
+    from m2rr import parse_from_file
     readme = parse_from_file(readme_file)
 except ImportError:
-    # m2r may not be installed in user environment
+    # m2rr may not be installed in user environment
     with open(readme_file) as f:
         readme = f.read()
 setup(
@@ -116,7 +116,7 @@ In your conf.py, add the following lines.
 ```python
 extensions = [
     ...,
-    'm2r',
+    'm2rr',
 ]
 
 # source_suffix = '.rst'
@@ -125,7 +125,7 @@ source_suffix = ['.rst', '.md']
 
 Write index.md and run `make html`.
 
-When `m2r` extension is enabled on sphinx and `.md` file is loaded, m2r
+When `m2rr` extension is enabled on sphinx and `.md` file is loaded, m2rr
 converts to rst and pass to sphinx, not making new `.rst` file.
 
 #### mdinclude directive
@@ -146,32 +146,32 @@ in the markdown file, please use `.. mdinclude:: file` instead.
   * H1: `=`, H2: `-`, H3: `^`, H4: `~`, H5: `"`, H6: `#`
 
 If you find any bug or unexpected behaviour, please report it to
-[Issues](https://github.com/miyakogi/m2r/issues).
+[Issues](https://github.com/miyakogi/m2rr/issues).
 
 ## Example
 
-See [example document](https://miyakogi.github.io/m2r/example.html) and [its
-source code](https://github.com/miyakogi/m2r/blob/master/docs/example.md).
+See [example document](https://miyakogi.github.io/m2rr/example.html) and [its
+source code](https://github.com/miyakogi/m2rr/blob/master/docs/example.md).
 
-I'm using m2r for writing user guide of [WDOM](https://github.com/miyakogi/wdom).
+I'm using m2rr for writing user guide of [WDOM](https://github.com/miyakogi/wdom).
 So you can see it as another example. Its [HTML is
 here](http://wdom-py.readthedocs.io/en/latest/guide/index.html), and [its
 source code is here](https://github.com/miyakogi/wdom/tree/dev/docs/guide).
 
 ### Demo editor
 
-Demo editor of m2r is available.
-If you are interested in m2r, please try it.
+Demo editor of m2rr is available.
+If you are interested in m2rr, please try it.
 
-[https://github.com/miyakogi/m2rdemo](https://github.com/miyakogi/m2rdemo)
+[https://github.com/miyakogi/m2rrdemo](https://github.com/miyakogi/m2rrdemo)
 
 ## Acknowledgement
 
-m2r is written as an extension of
+m2rr is written as an extension of
 [mistune](http://mistune.readthedocs.io/en/latest/), which is highly extensible
 pure-python markdown parser.
 Without the mistune, I couldn't write this. Thank you!
 
 ## Licence
 
-[MIT](https://github.com/miyakogi/m2r/blob/master/LICENSE)
+[MIT](https://github.com/miyakogi/m2rr/blob/master/LICENSE)

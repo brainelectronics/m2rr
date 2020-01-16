@@ -11,7 +11,7 @@ except ImportError:
 
 readme_file = path.join(path.dirname(path.abspath(__file__)), 'README.md')
 try:
-    from m2r import parse_from_file
+    from m2rr import parse_from_file
     readme = parse_from_file(readme_file)
 except ImportError:
     with open(readme_file) as f:
@@ -23,15 +23,15 @@ if sys.version_info < (3, 3):
     test_requirements.append('mock')
 
 setup(
-    name='m2r',
-    version='0.2.1',
+    name='m2rr',
+    version='0.2.2',
     description='Markdown and reStructuredText in a single file.',
     long_description=readme,
-    author='Hiroyuki Takagi',
-    author_email='miyako.dev@gmail.com',
-    url='https://github.com/miyakogi/m2r',
-    py_modules=['m2r'],
-    entry_points={'console_scripts': 'm2r = m2r:main'},
+    author='Edward Huang',
+    author_email='e.huang@gns.cri.nz',
+    url='https://github.com/qhua948/m2rr',
+    py_modules=['m2rr'],
+    entry_points={'console_scripts': 'm2rr = m2rr:main'},
     include_package_data=True,
     license="MIT",
     zip_safe=False,

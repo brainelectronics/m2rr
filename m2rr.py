@@ -24,7 +24,7 @@ else:
 __version__ = '0.2.1'
 _is_sphinx = False
 prolog = '''\
-.. role:: raw-html-m2r(raw)
+.. role:: raw-html-m2rr(raw)
    :format: html
 
 '''
@@ -220,7 +220,7 @@ class RestRenderer(mistune.Renderer):
 
     def _raw_html(self, html):
         self._include_raw_html = True
-        return r'\ :raw-html-m2r:`{}`\ '.format(html)
+        return r'\ :raw-html-m2rr:`{}`\ '.format(html)
 
     def block_code(self, code, lang=None):
         if lang == 'math':
@@ -557,9 +557,9 @@ class M2RParser(rst.Parser, object):
         config = document.settings.env.config
         converter = M2R(
             no_underscore_emphasis=config.no_underscore_emphasis,
-            parse_relative_links=config.m2r_parse_relative_links,
-            anonymous_references=config.m2r_anonymous_references,
-            disable_inline_math=config.m2r_disable_inline_math
+            parse_relative_links=config.m2rr_parse_relative_links,
+            anonymous_references=config.m2rr_anonymous_references,
+            disable_inline_math=config.m2rr_disable_inline_math
         )
         super(M2RParser, self).parse(converter(inputstring), document)
 
@@ -630,9 +630,9 @@ class MdInclude(rst.Directive):
         config = self.state.document.settings.env.config
         converter = M2R(
             no_underscore_emphasis=config.no_underscore_emphasis,
-            parse_relative_links=config.m2r_parse_relative_links,
-            anonymous_references=config.m2r_anonymous_references,
-            disable_inline_math=config.m2r_disable_inline_math
+            parse_relative_links=config.m2rr_parse_relative_links,
+            anonymous_references=config.m2rr_anonymous_references,
+            disable_inline_math=config.m2rr_disable_inline_math
         )
         include_lines = statemachine.string2lines(converter(rawtext),
                                                   tab_width,
@@ -646,9 +646,9 @@ def setup(app):
     global _is_sphinx
     _is_sphinx = True
     app.add_config_value('no_underscore_emphasis', False, 'env')
-    app.add_config_value('m2r_parse_relative_links', False, 'env')
-    app.add_config_value('m2r_anonymous_references', False, 'env')
-    app.add_config_value('m2r_disable_inline_math', False, 'env')
+    app.add_config_value('m2rr_parse_relative_links', False, 'env')
+    app.add_config_value('m2rr_anonymous_references', False, 'env')
+    app.add_config_value('m2rr_disable_inline_math', False, 'env')
     if hasattr(app, 'add_source_suffix'):
         app.add_source_suffix('.md', 'markdown')
         app.add_source_parser(M2RParser)
