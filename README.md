@@ -1,15 +1,15 @@
-M2R
-===
+M2RR
+====
 
 [![PyPI](https://img.shields.io/pypi/v/m2rr.svg)](https://pypi.python.org/pypi/m2rr)
 [![PyPI version](https://img.shields.io/pypi/pyversions/m2rr.svg)](https://pypi.python.org/pypi/m2rr)
-[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://miyakogi.github.io/m2rr)
-[![Build Status](https://travis-ci.org/miyakogi/m2rr.svg?branch=master)](https://travis-ci.org/miyakogi/m2rr)
-[![codecov](https://codecov.io/gh/miyakogi/m2rr/branch/master/graph/badge.svg)](https://codecov.io/gh/miyakogi/m2rr)
+[![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://qhua948.github.io/m2rr)
+[![Build Status](https://travis-ci.org/qhua948/m2rr.svg?branch=master)](https://travis-ci.org/qhua948/m2rr)
+[![codecov](https://codecov.io/gh/qhua948/m2rr/branch/master/graph/badge.svg)](https://codecov.io/gh/qhua948/m2rr)
 
 --------------------------------------------------------------------------------
 
-M2R converts a markdown file including reStructuredText (rst) markups to a valid
+M2RR (R for Reborn) converts a markdown file including reStructuredText (rst) markups to a valid
 rst format.
 
 ## Why another converter?
@@ -20,6 +20,11 @@ recommonmark do not support many rst markups and sphinx extensions. For
 example, rst's reference link like ``see `ref`_`` (this is very convenient in
 long document in which same link appears multiple times) will be converted to
 a code block in HTML like `see <code>ref</code>_`, which is not expected.
+
+## Why fork
+
+The original author seems to be no longer maintain the repository actively.
+[Original Repo](https://github.com/miyakogi/m2r/).
 
 ## Features
 
@@ -146,12 +151,12 @@ in the markdown file, please use `.. mdinclude:: file` instead.
   * H1: `=`, H2: `-`, H3: `^`, H4: `~`, H5: `"`, H6: `#`
 
 If you find any bug or unexpected behaviour, please report it to
-[Issues](https://github.com/miyakogi/m2rr/issues).
+[Issues](https://github.com/qhua948/m2rr/issues).
 
 ## Example
 
-See [example document](https://miyakogi.github.io/m2rr/example.html) and [its
-source code](https://github.com/miyakogi/m2rr/blob/master/docs/example.md).
+See [example document](https://qhua948.github.io/m2rr/example.html) and [its
+source code](https://github.com/qhua948/m2rr/blob/master/docs/example.md).
 
 I'm using m2rr for writing user guide of [WDOM](https://github.com/miyakogi/wdom).
 So you can see it as another example. Its [HTML is
@@ -163,7 +168,7 @@ source code is here](https://github.com/miyakogi/wdom/tree/dev/docs/guide).
 Demo editor of m2rr is available.
 If you are interested in m2rr, please try it.
 
-[https://github.com/miyakogi/m2rrdemo](https://github.com/miyakogi/m2rrdemo)
+[https://github.com/miyakogi/m2rdemo](https://github.com/miyakogi/m2rdemo)
 
 ## Acknowledgement
 

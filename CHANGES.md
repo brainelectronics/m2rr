@@ -1,5 +1,9 @@
 ## Version 0.3.0
 
+### Version 0.2.2 (2020-01-17)
+
+* Changed markdown codeblock to use reST literal blocks without guess
+
 ### Version 0.2.1 (2018-10-12)
 
 * Add `--disable-inline-math` and `m2r_disable_inline_math` sphinx option

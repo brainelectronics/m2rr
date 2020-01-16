@@ -1,2 +1,2 @@
 [run]
-include=m2r.py,tests/test_*.py
+include=m2rr.py,tests/test_*.py
