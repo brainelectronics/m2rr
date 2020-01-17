@@ -1,5 +1,9 @@
 ## Version 0.3.0
 
+### Version 0.2.3 (2020-01-17)
+
+* Uses sane default lexing as "Null" parser from pygements
+
 ### Version 0.2.2 (2020-01-17)
 
 * Changed markdown codeblock to use reST literal blocks without guess

@@ -21,7 +21,7 @@ else:
     _open = open
     from urllib.parse import urlparse
 
-__version__ = '0.2.2'
+__version__ = '0.2.3'
 _is_sphinx = False
 prolog = '''\
 .. role:: raw-html-m2rr(raw)
@@ -190,6 +190,8 @@ class RestInlineLexer(mistune.InlineLexer):
 
 
 class RestRenderer(mistune.Renderer):
+    """reStructedText Renderer
+    """
     _include_raw_html = False
     list_indent_re = re.compile(r'^(\s*(#\.|\*)\s)')
     indent = ' ' * 3
@@ -227,10 +229,9 @@ class RestRenderer(mistune.Renderer):
             first_line = '\n.. math::\n\n'
         elif lang:
             first_line = '\n.. code-block:: {}\n\n'.format(lang)
-        elif _is_sphinx:
-            first_line = '\n::\n\n'
         else:
-            first_line = '\n.. code-block::\n\n'
+            # Uses pygments's "Null" lexer if no language specified
+            first_line = '\n.. code-block:: text\n\n'
         return first_line + self._indent_block(code) + '\n'
 
     def block_quote(self, text):

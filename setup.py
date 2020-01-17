@@ -24,8 +24,8 @@ if sys.version_info < (3, 3):
 
 setup(
     name='m2rr',
-    version='0.2.2',
-    description='Markdown and reStructuredText in a single file.',
+    version='0.2.3',
+    description='Convert Markdown to reStructuredText, m2rr.',
     long_description=readme,
     author='Edward Huang',
     author_email='e.huang@gns.cri.nz',
