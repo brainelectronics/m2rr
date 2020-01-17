@@ -21,7 +21,7 @@ else:
     _open = open
     from urllib.parse import urlparse
 
-__version__ = '0.2.1'
+__version__ = '0.2.2'
 _is_sphinx = False
 prolog = '''\
 .. role:: raw-html-m2rr(raw)
