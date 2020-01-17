@@ -1,5 +1,5 @@
 coverage
 sphinx
 flake8
-mistune
+mistune==0.8.4
 mock; python_version < '3.3'
