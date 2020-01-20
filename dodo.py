@@ -17,7 +17,7 @@ DOIT_CONFIG = {
 
 def task_flake8():
     return {
-        'actions': ['flake8 m2r tests'],
+        'actions': ['flake8 m2rr tests'],
     }
 
 
