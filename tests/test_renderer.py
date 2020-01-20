@@ -8,7 +8,7 @@ from unittest import TestCase, skip
 from docutils.core import Publisher
 from docutils import io
 
-from m2r import prolog, convert
+from m2rr import prolog, convert
 
 
 class RendererTestBase(TestCase):
@@ -78,7 +78,7 @@ class TestBasic(RendererTestBase):
         out = self.conv(src)
         self.assertEqual(
             out,
-            prolog + '\nabc def\\ :raw-html-m2r:`<br>`\nghi' + '\n',
+            prolog + '\nabc def\\ :raw-html-m2rr:`<br>`\nghi' + '\n',
         )
 
 
@@ -92,9 +92,9 @@ class TestInlineMarkdown(RendererTestBase):
         src = '```a``a```'
         out = self.conv(src)
         self.assertEqual(out.strip(),
-                         '.. role:: raw-html-m2r(raw)\n'
+                         '.. role:: raw-html-m2rr(raw)\n'
                          '   :format: html\n\n\n'
-                         ':raw-html-m2r:`<code class="docutils literal">'
+                         ':raw-html-m2rr:`<code class="docutils literal">'
                          '<span class="pre">a&#96;&#96;a</span></code>`'
                          )
 
@@ -200,9 +200,9 @@ class TestInlineMarkdown(RendererTestBase):
         out = self.conv(src)
         self.assertEqual(
             out,
-            '.. role:: raw-html-m2r(raw)\n'
+            '.. role:: raw-html-m2rr(raw)\n'
             '   :format: html\n\n\n'
-            'this is a :raw-html-m2r:'
+            'this is a :raw-html-m2rr:'
             '`<a href="http://example.com/" title="example">link</a>`.\n'
         )
 
@@ -300,7 +300,7 @@ class TestInlineMarkdown(RendererTestBase):
         src = 'this is <s>html</s>.'
         out = self.conv(src)
         self.assertEqual(
-            out, prolog + '\nthis is :raw-html-m2r:`<s>html</s>`.\n')
+            out, prolog + '\nthis is :raw-html-m2rr:`<s>html</s>`.\n')
 
     def test_block_html(self):
         src = '<h1>title</h1>'
@@ -335,7 +335,9 @@ class TestCodeBlock(RendererTestBase):
             '```',
         ])
         out = self.conv(src)
-        self.assertEqual(out, '\n.. code-block::\n\n   pip install sphinx\n')
+        # Default to text block if non specified
+        self.assertEqual(out, '\n.. code-block:: text\n\n\
+   pip install sphinx\n')
 
     def test_plain_code_block_tilda(self):
         src = '\n'.join([
@@ -344,7 +346,8 @@ class TestCodeBlock(RendererTestBase):
             '~~~',
         ])
         out = self.conv(src)
-        self.assertEqual(out, '\n.. code-block::\n\n   pip install sphinx\n')
+        self.assertEqual(out, '\n.. code-block:: text\n\n   pip install \
+sphinx\n')
 
     def test_code_block_math(self):
         src = '\n'.join([
@@ -365,7 +368,8 @@ class TestCodeBlock(RendererTestBase):
         out = self.conv(src)
         self.assertEqual(
             out,
-            '\n.. code-block::\n\n   pip install sphinx\n       new line\n',
+            '\n.. code-block:: text\n\n   pip install \
+sphinx\n       new line\n',
         )
 
     def test_python_code_block(self):
@@ -760,9 +764,9 @@ class TestRestCode(RendererTestBase):
     def test_eol_marker(self):
         src = 'a::\n\n    code\n'
         out = self.conv(src)
-        self.assertEqual(out, '\na:\n\n.. code-block::\n\n   code\n')
+        self.assertEqual(out, '\na:\n\n.. code-block:: text\n\n   code\n')
 
     def test_eol_marker_remove(self):
         src = 'a ::\n\n    code\n'
         out = self.conv(src)
-        self.assertEqual(out, '\na\n\n.. code-block::\n\n   code\n')
+        self.assertEqual(out, '\na\n\n.. code-block:: text\n\n   code\n')

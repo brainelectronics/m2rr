@@ -36,7 +36,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'm2r',
+    'm2rr',
 ]
 
 suppress_warnings = ['image.nonlocal_uri']
@@ -49,9 +49,9 @@ templates_path = ['_templates']
 # source_suffix = ['.rst', '.md']
 source_suffix = '.md'
 no_underscore_emphasis = True
-m2r_parse_relative_links = True
-m2r_anonymous_references = False
-m2r_disable_inline_math = False
+m2rr_parse_relative_links = True
+m2rr_anonymous_references = False
+m2rr_disable_inline_math = False
 
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
@@ -60,9 +60,9 @@ m2r_disable_inline_math = False
 master_doc = 'index'
 
 # General information about the project.
-project = 'M2R'
-copyright = '2016, Hiroyuki Takagi'
-author = 'Hiroyuki Takagi'
+project = 'M2RR'
+copyright = '2020, Edward Huang, Hiroyuki Takagi'
+author = 'Edward Huang, Hiroyuki Takagi'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -129,9 +129,9 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    'description': 'Markdown mixed to reST',
-    'github_user': 'miyakogi',
-    'github_repo': 'm2r',
+    'description': 'Markdown mixed to reST Reborn',
+    'github_user': 'qhua948',
+    'github_repo': 'm2rr',
     'github_banner': True,
     'github_type': 'mark',
     'github_count': False,
@@ -235,7 +235,7 @@ html_sidebars = {
 #html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'M2Rdoc'
+htmlhelp_basename = 'M2RRdoc'
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -257,8 +257,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'M2R.tex', 'M2R Documentation',
-     'Hiroyuki Takagi', 'manual'),
+    (master_doc, 'M2RR.tex', 'M2RR Documentation',
+     'Edward Huang', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -287,7 +287,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'm2r', 'M2R Documentation',
+    (master_doc, 'm2rr', 'M2R Documentation',
      [author], 1)
 ]
 
@@ -301,8 +301,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'M2R', 'M2R Documentation',
-     author, 'M2R', 'One line description of project.',
+    (master_doc, 'M2RR', 'M2RR Documentation',
+     author, 'M2RR', 'One line description of project.',
      'Miscellaneous'),
 ]
 

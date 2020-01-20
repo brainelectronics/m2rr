@@ -70,7 +70,7 @@ green-cov:  # run green and calculate coverage
 
 .PHONY: flake8
 flake8:  ## run flake8 syntax check
-	flake8 setup.py m2r.py tests
+	flake8 setup.py m2rr.py tests
 
 .PHONY: docs
 docs:  ## build document

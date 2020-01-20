@@ -10,7 +10,7 @@ from copy import copy
 from unittest import TestCase
 import subprocess
 
-from m2r import parse_from_file, main, options
+from m2rr import parse_from_file, main, options
 
 if sys.version_info < (3, ):
     from mock import patch
@@ -47,7 +47,7 @@ class TestConvert(TestCase):
 
     def test_no_file(self):
         p = subprocess.Popen(
-            [sys.executable, '-m', 'm2r'],
+            [sys.executable, '-m', 'm2rr'],
             stdout=subprocess.PIPE,
         )
         p.wait()
